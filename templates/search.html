@@ -1,0 +1,45 @@
+{% extends 'dummy.html' %}
+
+{% block title %}
+
+<title>Search</title>
+
+{% endblock %}
+
+{% block body_block %}
+
+    {% if obj %}
+
+        <table border="3px">
+            <tr>
+                <th>Username</th>
+                <th>City</th>
+                <th>Temperature</th>
+                <th>Humidity</th>
+                <th>Weather</th>
+                <th>Speed</th>
+                <th>Timestamp</th>
+            </tr>
+            <tr>
+                <td>{{ obj.username }}</td>
+                <td>{{ obj.city }}</td>
+                <td>{{ obj.temperature }}</td>
+                <td>{{ obj.humidity }}</td>
+                <td>{{ obj.weather }}</td>
+                <td>{{ obj.speed }}</td>
+                <td>{{ obj.timestamp }}</td>
+            </tr>
+        </table>
+
+    {% else %}
+        <form action="" method="POST">
+            {% csrf_token %}
+                <label for="un" name="un">Enter city</label>
+                <input type="text" name="un" placeholder="enter city" id="un">
+                <br><br>
+                <input type="submit" value="submit">
+        </form>
+    {% endif %}
+
+
+{% endblock %}
